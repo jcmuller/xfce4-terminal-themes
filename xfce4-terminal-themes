@@ -77,6 +77,9 @@ class Xfce4Configurator:
         print('Font name:', self.current_font_name())
         print('Font size:', self.current_font_size())
 
+    def version(self):
+        return '%(prog)s 0.1'
+
 if __name__ == '__main__':
     c = Xfce4Configurator()
 
@@ -85,6 +88,7 @@ if __name__ == '__main__':
         parser.add_argument('theme', help='theme name', choices=c.theme_names, nargs='?')
         parser.add_argument('-l', '--themes', help='list theme names', action='store_true')
         parser.add_argument('-c', '--current', help='display current theme', action='store_true')
+        parser.add_argument('-V', '--version', action='version', version=c.version())
 
         return parser.parse_args()
 

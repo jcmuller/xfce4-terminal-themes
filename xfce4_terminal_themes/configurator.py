@@ -5,18 +5,16 @@
 #
 # Copyright © 2018 Juan C. Muller <jcmuller@gmail.com>
 #
-# License: GPLv2 or later.
+# License: MIT
 
 from __future__ import print_function
-from sys import  exit
-import argparse
 import os
 try:
     from configparser import RawConfigParser  # python3
 except ImportError:
     from ConfigParser import RawConfigParser  # python2
 
-class Xfce4Configurator:
+class Configurator:
     try:
         config_root = os.environ['XDG_CONFIG_HOME']
     except KeyError:
@@ -79,29 +77,3 @@ class Xfce4Configurator:
 
     def version(self):
         return '%(prog)s 0.1'
-
-if __name__ == '__main__':
-    c = Xfce4Configurator()
-
-    def parse_options():
-        parser = argparse.ArgumentParser(description="Configure Xfce4")
-        parser.add_argument('theme', help='theme name', choices=c.theme_names, nargs='?')
-        parser.add_argument('-l', '--themes', help='list theme names', action='store_true')
-        parser.add_argument('-c', '--current', help='display current theme', action='store_true')
-        parser.add_argument('-V', '--version', action='version', version=c.version())
-
-        return parser.parse_args()
-
-    args = parse_options()
-
-    if args.themes:
-        print("\n".join(c.theme_names))
-        exit(0)
-
-
-    if args.theme:
-        c.set_theme(args.theme)
-        c.save_config()
-        exit(0)
-
-    c.display_config()

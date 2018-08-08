@@ -2,6 +2,11 @@
 
 Switch xfce4-terminal themes with ease!
 
+## Installation
+```bash
+$ pip install xfce4_terminal_themes
+```
+
 ## Usage
 
 You need to create a `$XDG_HOME/xfce4/terminal/themes` file.

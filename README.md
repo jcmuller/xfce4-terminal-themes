@@ -10,25 +10,29 @@ $ pip install xfce4_terminal_themes
 ## Usage
 
 You need to create a `$XDG_HOME/xfce4/terminal/themes` file.
+(`$XDG_HOME` is typically `$HOME/.config`)
 
 It's anatomy is:
 
 ```ini
 [Theme Name]
 AnyPropertyThat = xfce4 terminal understands
+FontName = Terminus 12
 
 [Theme Name 2]
-FontName = Terminus 11
+ColorForeground = #CC00FF
+FontName = Terminus 9
 
 [Theme Name 3]
 ColorForeground = #123456
+FontName = Ubuntu Mono 12
 ```
 
 Then, you can list themes, see the current theme, and set themes.
 
 ### List themes:
 ```sh
-$ ./xfce4-terminal-themes -l
+$ xfce4-terminal-themes -l
 Theme Name 1
 Theme Name 2
 Theme Name 3
@@ -36,7 +40,7 @@ Theme Name 3
 
 ### Current theme:
 ```sh
-$ ./xfce4-terminal-themes -c
+$ xfce4-terminal-themes -c
 Theme name: Theme Name 2
 Font name: Terminus
 Font size: 11
@@ -44,7 +48,7 @@ Font size: 11
 
 ### Set theme:
 ```sh
-$ ./xfce4-terminal-themes "Theme Name 3"
+$ xfce4-terminal-themes "Theme Name 3"
 ```
 
 ## Contributing
